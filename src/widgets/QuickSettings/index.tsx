@@ -1,18 +1,15 @@
 import { ThemeToggle } from '@/features';
-import { STYLE_VARS, useColors } from '@/shared/styles';
-import { NavigateLink } from '@/shared/ui';
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import { STYLE_VARS } from '@/shared/styles';
+import { Icons, NavigateLink } from '@/shared/ui';
 import { StyleSheet, View } from 'react-native';
 
 const QuickSettings = () => {
-  const colors = useColors();
-
   return (
     <View style={styles.header}>
       <View style={styles.rightBox}>
         <ThemeToggle />
         <NavigateLink href={'/settings'}>
-          <MaterialIcons name="settings" size={26} color={colors.fg} />
+          <Icons packName="material-icons" name="settings" />
         </NavigateLink>
       </View>
     </View>
@@ -26,6 +23,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingInline: STYLE_VARS.spacing.default * 2,
     paddingBottom: STYLE_VARS.spacing.default,
+    zIndex: 1,
   },
   rightBox: {
     marginLeft: 'auto',

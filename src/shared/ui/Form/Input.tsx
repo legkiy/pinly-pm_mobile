@@ -1,13 +1,12 @@
 import { Controller, ControllerProps, FieldPath, FieldValues } from 'react-hook-form';
 
-import { TextInputProps } from 'react-native';
-import Input from '../Input';
+import Input, { InputProps } from '../Input';
 
 type Props<TFieldValues extends FieldValues = FieldValues> = Omit<
   ControllerProps<TFieldValues, FieldPath<TFieldValues>>,
   'render'
 > & {
-  inputProps?: TextInputProps;
+  inputProps?: InputProps;
   labelKey?: string;
 };
 

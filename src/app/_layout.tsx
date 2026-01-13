@@ -2,8 +2,10 @@ import { Stack } from 'expo-router';
 import ConfigProvider from '@/config/ConfigProvider';
 import { StatusBar } from 'expo-status-bar';
 import { QuickSettings } from '@/widgets';
+import { useColors } from '@/shared/styles';
 
 const RootLayout = () => {
+  const colors = useColors();
   return (
     <ConfigProvider>
       <Stack
@@ -11,7 +13,9 @@ const RootLayout = () => {
           // headerShown: false,
           headerRight: () => <QuickSettings />,
           headerShadowVisible: false,
-          headerBackground: () => null,
+          headerStyle: {
+            backgroundColor: colors.bg,
+          },
         }}
         // screenLayout={({ children }) => <SafeAreaView edges={['right', 'left']}>{children}</SafeAreaView>}
       />

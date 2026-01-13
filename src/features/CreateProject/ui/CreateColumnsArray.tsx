@@ -1,8 +1,7 @@
-import { Form, T } from '@/shared/ui';
+import { Form, Icons, T } from '@/shared/ui';
 import { ArrayPath, FieldArray, FieldValues, Path, useFieldArray, UseFormReturn } from 'react-hook-form';
 import { FlatList, Pressable, View } from 'react-native';
-import FontAwesome6 from '@react-native-vector-icons/fontawesome6';
-import { useColors } from '@/shared/styles';
+import { STYLE_VARS } from '@/shared/styles';
 
 type Props<T extends FieldValues> = {
   name: ArrayPath<T>;
@@ -11,7 +10,6 @@ type Props<T extends FieldValues> = {
 };
 
 const CreateColumnsArray = <T extends FieldValues>({ methods, name, defaultField }: Props<T>) => {
-  const colors = useColors();
   const { fields, append, remove } = useFieldArray({
     control: methods.control,
     name,
@@ -24,13 +22,33 @@ const CreateColumnsArray = <T extends FieldValues>({ methods, name, defaultField
         style={{
           maxHeight: 200,
         }}
+        contentContainerStyle={{
+          paddingVertical: STYLE_VARS.spacing.default,
+          gap: STYLE_VARS.spacing.default,
+        }}
         data={fields}
         keyExtractor={(item) => item.id}
-        renderItem={(item) => <Form.Input control={methods.control} name={`${name}.${item.index}.title` as Path<T>} />}
+        renderItem={(item) => (
+          <Form.Input
+            control={methods.control}
+            name={`${name}.${item.index}.title` as Path<T>}
+            inputProps={{
+              endIcon: (
+                <Icons
+                  packName="fontawesome6"
+                  name="circle-minus"
+                  iconStyle="solid"
+                  onPress={() => remove(item.index)}
+                  suppressHighlighting
+                />
+              ),
+            }}
+          />
+        )}
       />
       <Pressable onPress={() => append(defaultField)} className="flex-row items-center gap-2">
         <T mess="Add column" />
-        <FontAwesome6 name="circle-plus" size={24} iconStyle="solid" color={colors.fg} />
+        <Icons packName="fontawesome6" name="circle-plus" iconStyle="solid" />
       </Pressable>
     </View>
   );

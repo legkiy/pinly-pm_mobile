@@ -1,11 +1,8 @@
 import { Appearance, Pressable, StyleSheet, useColorScheme, View } from 'react-native';
-import { FontAwesome6 } from '@react-native-vector-icons/fontawesome6';
-import { MaterialIcons } from '@react-native-vector-icons/material-icons';
-import { useColors } from '@/shared/styles';
+import { Icons } from '@/shared/ui';
 
 const ThemeToggle = () => {
   const colorScheme = useColorScheme();
-  const colors = useColors();
 
   const handleOnChange = () => {
     if (colorScheme === 'light') {
@@ -19,9 +16,9 @@ const ThemeToggle = () => {
     <View style={styles.box}>
       <Pressable onPress={handleOnChange} style={{ backgroundColor: 'transparent' }}>
         {colorScheme === 'light' ? (
-          <FontAwesome6 name="moon" iconStyle="solid" size={24} color={colors.fg} style={styles.icon} />
+          <Icons packName="fontawesome6" name="moon" iconStyle="solid" />
         ) : (
-          <MaterialIcons name="sunny" size={24} color={colors.fg} style={styles.icon} />
+          <Icons packName="material-icons" name="sunny" />
         )}
       </Pressable>
     </View>
