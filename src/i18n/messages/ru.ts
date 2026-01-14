@@ -1,8 +1,21 @@
 import { MessTypes } from './en';
 
- const RU: MessTypes = {
+const RU: MessTypes = {
   hello: 'Привет',
-
+  columns: {
+    title: 'Колонки',
+    add: 'Добавить колонку',
+  },
+  kanban: {
+    queue: 'Очередь',
+    inProgress: 'В процессе',
+    done: 'Готово',
+  },
+  common: {
+    add: 'Добавить',
+    create: 'Создать',
+  },
+  errors: {},
 };
 
-export default RU
+export default RU;

@@ -17,6 +17,7 @@ const CreateColumnsArray = <T extends FieldValues>({ methods, name, defaultField
 
   return (
     <View>
+      <T mess="columns.title" />
       <FlatList
         maxToRenderPerBatch={4}
         style={{
@@ -47,7 +48,7 @@ const CreateColumnsArray = <T extends FieldValues>({ methods, name, defaultField
         )}
       />
       <Pressable onPress={() => append(defaultField)} className="flex-row items-center gap-2">
-        <T mess="Add column" />
+        <T mess="columns.add" />
         <Icons packName="fontawesome6" name="circle-plus" iconStyle="solid" />
       </Pressable>
     </View>

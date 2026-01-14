@@ -45,7 +45,7 @@ const CreateProject = () => {
       />
       <CreateColumnsArray methods={methods} name="columns" defaultField={{ title: '', id: 'column-' + createUuid() }} />
       <Button onPress={() => handleSubmit()}>
-        <T mess="Create" />
+        <T mess="common.create" />
       </Button>
     </View>
   );
