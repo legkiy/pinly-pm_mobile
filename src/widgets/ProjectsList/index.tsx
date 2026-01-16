@@ -1,6 +1,6 @@
 import { Project, ProjectCard } from '@/entities/Project';
 import { createMockArray } from '@/shared/lib';
-import { FlatList } from 'react-native';
+import { ScrollView } from 'react-native';
 
 const mockData = createMockArray<Project>(9, (step, id) => ({
   id,
@@ -13,12 +13,11 @@ const mockData = createMockArray<Project>(9, (step, id) => ({
 
 const ProjectsList = () => {
   return (
-    <FlatList
-      data={mockData}
-      keyExtractor={(el) => el.id}
-      renderItem={({ item }) => <ProjectCard {...item} />}
-      contentContainerClassName="gap-4 p-2 pb-35"
-    />
+    <ScrollView contentContainerClassName="gap-4 pb-35">
+      {mockData.map((el) => (
+        <ProjectCard key={el.id} {...el} />
+      ))}
+    </ScrollView>
   );
 };
 export default ProjectsList;

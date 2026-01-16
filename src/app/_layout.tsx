@@ -1,8 +1,7 @@
 import { Stack } from 'expo-router';
 import ConfigProvider from '@/config/ConfigProvider';
-import { StatusBar } from 'expo-status-bar';
-import { QuickSettings } from '@/widgets';
 import { useColors } from '@/shared/styles';
+import { StatusBar } from 'expo-status-bar';
 
 const RootLayout = () => {
   const colors = useColors();
@@ -10,15 +9,21 @@ const RootLayout = () => {
     <ConfigProvider>
       <Stack
         screenOptions={{
-          // headerShown: false,
-          headerRight: () => <QuickSettings />,
-          headerShadowVisible: false,
-          headerStyle: {
-            backgroundColor: colors.bg,
-          },
-        }}
-        // screenLayout={({ children }) => <SafeAreaView edges={['right', 'left']}>{children}</SafeAreaView>}
-      />
+          headerShown: false,
+        }}>
+        <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen name="projects/[projectId]/index" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="editable-project"
+          options={{
+            headerShown: false,
+            presentation: 'formSheet',
+            sheetAllowedDetents: [0.6],
+            sheetGrabberVisible: true,
+          }}
+        />
+      </Stack>
+
       <StatusBar style="auto" />
     </ConfigProvider>
   );

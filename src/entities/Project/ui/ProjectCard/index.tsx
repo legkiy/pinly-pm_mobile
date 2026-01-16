@@ -3,11 +3,12 @@ import { HtmlText, NavigateLink, T } from '@/shared/ui';
 import { FC } from 'react';
 import { Dimensions, StyleSheet, View } from 'react-native';
 import { Project } from '../../models';
+import { ROUTER } from '@/shared/models';
 
 type Props = Project;
 const ProjectCard: FC<Props> = ({ title, description, id }) => {
   return (
-    <NavigateLink href={`/projects/${id}`}>
+    <NavigateLink href={ROUTER.project(id)}>
       <View className="bg-card g-2 w-full rounded-lg p-2 shadow-xs">
         <T mess={title} />
         <HtmlText html={description || ''} />

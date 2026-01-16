@@ -33,7 +33,7 @@ const CreateProject = () => {
   );
 
   return (
-    <View className="gap-2">
+    <View className="gap-2 pb-5">
       <Form.Input control={methods.control} name="title" labelKey="Project Name" />
       <Form.Input
         control={methods.control}
