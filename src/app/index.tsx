@@ -1,7 +1,7 @@
 import { ROUTER } from '@/shared/models';
-import { BottomSheet, Button, NavigateLink, T } from '@/shared/ui';
+import { Button, NavigateLink, T } from '@/shared/ui';
 import ParallaxScrollView from '@/shared/ui/ParalaxView';
-import { ProjectsList } from '@/widgets';
+import { ProjectsList, QuickSettings } from '@/widgets';
 import { Image } from 'react-native';
 
 const HommeScreen = () => {
@@ -10,6 +10,7 @@ const HommeScreen = () => {
       <ParallaxScrollView
         backSlot={
           <>
+            <QuickSettings />
             <Image
               source={require('@assets/partial-react-logo.png')}
               style={{

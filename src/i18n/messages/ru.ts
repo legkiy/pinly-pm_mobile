@@ -14,6 +14,7 @@ const RU: MessTypes = {
   common: {
     add: 'Добавить',
     create: 'Создать',
+    loading:'Загрузка'
   },
   errors: {},
 };

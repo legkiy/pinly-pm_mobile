@@ -1,2 +1,2 @@
 export { createMockArray } from './createMockArray';
-export { createUuid } from './createUuid';
+export { generateUuid } from './createUuid';

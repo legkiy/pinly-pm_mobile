@@ -13,7 +13,7 @@ const Button = ({ onPress, children, disabled = false, style, className, ...pres
   return (
     <Pressable
       onPress={disabled ? undefined : onPress}
-      className={twMerge('bg-accent-main rounded-lg p-3', className)}
+      className={twMerge('bg-accent-main rounded-lg p-3 transition-colors', disabled && 'bg-line-main', className)}
       {...pressableProps}>
       {children}
     </Pressable>

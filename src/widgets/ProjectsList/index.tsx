@@ -1,4 +1,4 @@
-import { Project, ProjectCard } from '@/entities/Project';
+import { Project, ProjectCard, useProjectStore } from '@/entities/Project';
 import { createMockArray } from '@/shared/lib';
 import { ScrollView } from 'react-native';
 
@@ -12,9 +12,13 @@ const mockData = createMockArray<Project>(9, (step, id) => ({
 }));
 
 const ProjectsList = () => {
+  const { projects } = useProjectStore();
+
+  const projectsList = Object.values(projects);
+
   return (
     <ScrollView contentContainerClassName="gap-4 pb-35">
-      {mockData.map((el) => (
+      {projectsList.map((el) => (
         <ProjectCard key={el.id} {...el} />
       ))}
     </ScrollView>

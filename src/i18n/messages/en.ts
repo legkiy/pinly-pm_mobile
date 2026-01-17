@@ -14,6 +14,7 @@ const En = {
   common: {
     add: 'Add',
     create: 'Create',
+    loading: 'Loading',
   },
   errors: {},
 };

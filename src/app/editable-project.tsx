@@ -3,7 +3,7 @@ import { View } from 'react-native';
 
 const AddProjectScreen = () => {
   return (
-    <View className="my-10 p-6">
+    <View className="flex-1 pt-10">
       <CreateProject />
     </View>
   );

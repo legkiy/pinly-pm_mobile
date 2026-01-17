@@ -1,6 +1,6 @@
 // import * as Crypto from 'expo-crypto';
 
-import { createUuid } from './createUuid';
+import { generateUuid } from './createUuid';
 
 /**
  * @param count counts of mock objects
@@ -8,7 +8,7 @@ import { createUuid } from './createUuid';
  */
 export function createMockArray<T>(count: number, callback: (step: number, id: string) => T): T[] {
   return Array.from({ length: count }, (_, i) => {
-    const id = createUuid();
+    const id = generateUuid();
     return callback(i, id);
   });
 }
